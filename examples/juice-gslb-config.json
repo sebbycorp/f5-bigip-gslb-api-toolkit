@@ -1,0 +1,389 @@
+{
+  "configurationName": "juice.gslb.maniak.lab",
+  "f5Device": "172.16.10.10",
+  "collectionTimestamp": "2025-07-10T15:53:00Z",
+  "analysisResults": {
+    "wideIp": {
+      "kind": "tm:gtm:wideip:a:astate",
+      "name": "juice.gslb.maniak.lab",
+      "partition": "Common",
+      "fullPath": "/Common/juice.gslb.maniak.lab",
+      "generation": 1735,
+      "selfLink": "https://localhost/mgmt/tm/gtm/wideip/a/~Common~juice.gslb.maniak.lab?ver=17.5.0",
+      "enabled": true,
+      "failureRcode": "noerror",
+      "failureRcodeResponse": "disabled",
+      "failureRcodeTtl": 0,
+      "lastResortPool": "",
+      "minimalResponse": "enabled",
+      "persistCidrIpv4": 32,
+      "persistCidrIpv6": 128,
+      "persistence": "disabled",
+      "poolLbMode": "round-robin",
+      "topologyPreferEdns0ClientSubnet": "disabled",
+      "ttlPersistence": 3600,
+      "pools": [
+        {
+          "name": "juice.gslb.maniak.lab",
+          "partition": "Common",
+          "order": 0,
+          "ratio": 1,
+          "nameReference": {
+            "link": "https://localhost/mgmt/tm/gtm/pool/a/~Common~juice.gslb.maniak.lab?ver=17.5.0"
+          }
+        }
+      ]
+    },
+    "gtmPool": {
+      "kind": "tm:gtm:pool:a:astate",
+      "name": "juice.gslb.maniak.lab",
+      "partition": "Common",
+      "fullPath": "/Common/juice.gslb.maniak.lab",
+      "generation": 1736,
+      "selfLink": "https://localhost/mgmt/tm/gtm/pool/a/~Common~juice.gslb.maniak.lab?ver=17.5.0",
+      "alternateMode": "round-robin",
+      "dynamicRatio": "disabled",
+      "enabled": true,
+      "fallbackIp": "any",
+      "fallbackMode": "return-to-dns",
+      "limitMaxBps": 0,
+      "limitMaxBpsStatus": "disabled",
+      "limitMaxConnections": 0,
+      "limitMaxConnectionsStatus": "disabled",
+      "limitMaxPps": 0,
+      "limitMaxPpsStatus": "disabled",
+      "loadBalancingMode": "round-robin",
+      "manualResume": "disabled",
+      "maxAnswersReturned": 1,
+      "minMembersUpMode": "off",
+      "minMembersUpValue": 0,
+      "monitor": "default",
+      "qosHitRatio": 5,
+      "qosHops": 0,
+      "qosKilobytesSecond": 3,
+      "qosLcs": 30,
+      "qosPacketRate": 1,
+      "qosRtt": 50,
+      "qosTopology": 0,
+      "qosVsCapacity": 0,
+      "qosVsScore": 0,
+      "ttl": 30,
+      "verifyMemberAvailability": "enabled"
+    },
+    "gtmPoolMembers": [
+      {
+        "kind": "tm:gtm:pool:a:members:membersstate",
+        "name": "juiceshop_vs",
+        "partition": "Common",
+        "subPath": "bigip:/Common",
+        "fullPath": "/Common/bigip:/Common/juiceshop_vs",
+        "generation": 1733,
+        "enabled": true,
+        "limitMaxBps": 0,
+        "limitMaxBpsStatus": "disabled",
+        "limitMaxConnections": 0,
+        "limitMaxConnectionsStatus": "disabled",
+        "limitMaxPps": 0,
+        "limitMaxPpsStatus": "disabled",
+        "memberOrder": 0,
+        "monitor": "default",
+        "ratio": 1
+      }
+    ],
+    "gtmVirtualServer": {
+      "kind": "tm:gtm:server:virtual-servers:virtual-serversstate",
+      "name": "/Common/juiceshop_vs",
+      "fullPath": "/Common/juiceshop_vs",
+      "generation": 1732,
+      "destination": "172.16.20.100:80",
+      "enabled": true,
+      "limitMaxBps": 0,
+      "limitMaxBpsStatus": "disabled",
+      "limitMaxConnections": 0,
+      "limitMaxConnectionsStatus": "disabled",
+      "limitMaxPps": 0,
+      "limitMaxPpsStatus": "disabled",
+      "translationAddress": "none",
+      "translationPort": 0
+    },
+    "ltmVirtualServer": {
+      "kind": "tm:ltm:virtual:virtualstate",
+      "name": "juiceshop",
+      "partition": "Common",
+      "fullPath": "/Common/juiceshop",
+      "generation": 670,
+      "addressStatus": "yes",
+      "autoDiscovery": "disabled",
+      "autoLasthop": "default",
+      "cmpEnabled": "yes",
+      "connectionLimit": 0,
+      "creationTime": "2025-05-02T15:43:06Z",
+      "destination": "/Common/172.16.20.100:80",
+      "enabled": true,
+      "evictionProtected": "disabled",
+      "gtmScore": 0,
+      "ipProtocol": "tcp",
+      "lastModifiedTime": "2025-06-02T01:40:04Z",
+      "mask": "255.255.255.255",
+      "mirror": "disabled",
+      "mobileAppTunnel": "disabled",
+      "nat64": "disabled",
+      "pool": "/Common/juiceshop_pool",
+      "rateLimit": "disabled",
+      "rateLimitDstMask": 0,
+      "rateLimitMode": "object",
+      "rateLimitSrcMask": 0,
+      "securityNatPolicy": {
+        "useDevicePolicy": "no",
+        "useRouteDomainPolicy": "no"
+      },
+      "serversslUseSni": "disabled",
+      "serviceDownImmediateAction": "none",
+      "source": "0.0.0.0/0",
+      "sourceAddressTranslation": {
+        "type": "automap"
+      },
+      "sourcePort": "preserve",
+      "synCookieStatus": "not-activated",
+      "throughputCapacity": "infinite",
+      "translateAddress": "enabled",
+      "translatePort": "enabled",
+      "vlansDisabled": true,
+      "vsIndex": 10
+    },
+    "ltmPool": {
+      "kind": "tm:ltm:pool:poolstate",
+      "name": "juiceshop_pool",
+      "partition": "Common",
+      "fullPath": "/Common/juiceshop_pool",
+      "generation": 14443,
+      "allowNat": "yes",
+      "allowSnat": "yes",
+      "ignorePersistedWeight": "disabled",
+      "ipTosToClient": "pass-through",
+      "ipTosToServer": "pass-through",
+      "linkQosToClient": "pass-through",
+      "linkQosToServer": "pass-through",
+      "loadBalancingMode": "least-connections-member",
+      "minActiveMembers": 0,
+      "minUpMembers": 0,
+      "minUpMembersAction": "failover",
+      "minUpMembersChecking": "disabled",
+      "monitor": "/Common/juiceshop_http_monitor",
+      "queueDepthLimit": 0,
+      "queueOnConnectionLimit": "disabled",
+      "queueTimeLimit": 0,
+      "reselectTries": 0,
+      "serviceDownAction": "none",
+      "slowRampTime": 10
+    },
+    "ltmPoolMembers": [
+      {
+        "kind": "tm:ltm:pool:members:membersstate",
+        "name": "172.100.100.11:1521",
+        "partition": "Common",
+        "fullPath": "/Common/172.100.100.11:1521",
+        "generation": 14443,
+        "address": "172.100.100.11",
+        "connectionLimit": 0,
+        "dynamicRatio": 1,
+        "ephemeral": "false",
+        "fqdn": {
+          "autopopulate": "disabled"
+        },
+        "inheritProfile": "enabled",
+        "logging": "disabled",
+        "monitor": "default",
+        "priorityGroup": 0,
+        "rateLimit": "disabled",
+        "ratio": 1,
+        "session": "monitor-enabled",
+        "state": "up"
+      }
+    ],
+    "monitor": {
+      "kind": "tm:ltm:monitor:http:httpstate",
+      "name": "juiceshop_http_monitor",
+      "partition": "Common",
+      "fullPath": "/Common/juiceshop_http_monitor",
+      "generation": 0,
+      "adaptive": "disabled",
+      "adaptiveDivergenceType": "relative",
+      "adaptiveDivergenceValue": 25,
+      "adaptiveLimit": 200,
+      "adaptiveSamplingTimespan": 300,
+      "defaultsFrom": "/Common/http",
+      "destination": "*:*",
+      "interval": 5,
+      "ipDscp": 0,
+      "manualResume": "disabled",
+      "reverse": "disabled",
+      "send": "GET /\\r\\n",
+      "timeUntilUp": 0,
+      "timeout": 16,
+      "transparent": "disabled",
+      "upInterval": 0
+    }
+  },
+  "trafficFlow": {
+    "description": "Complete traffic flow path for juice.gslb.maniak.lab",
+    "steps": [
+      {
+        "step": 1,
+        "component": "DNS Query",
+        "description": "Client queries juice.gslb.maniak.lab",
+        "action": "DNS resolution request received"
+      },
+      {
+        "step": 2,
+        "component": "GTM Wide IP",
+        "name": "juice.gslb.maniak.lab",
+        "description": "Wide IP processes query using round-robin pool selection",
+        "action": "Selects GTM pool: juice.gslb.maniak.lab"
+      },
+      {
+        "step": 3,
+        "component": "GTM Pool",
+        "name": "juice.gslb.maniak.lab",
+        "description": "Pool selects available member using round-robin load balancing",
+        "action": "Selects GTM virtual server: juiceshop_vs"
+      },
+      {
+        "step": 4,
+        "component": "GTM Virtual Server",
+        "name": "juiceshop_vs",
+        "destination": "172.16.20.100:80",
+        "description": "GTM VS maps to corresponding LTM virtual server",
+        "action": "Returns IP address 172.16.20.100 to client"
+      },
+      {
+        "step": 5,
+        "component": "Client Connection",
+        "description": "Client connects to returned IP address",
+        "action": "TCP connection to 172.16.20.100:80"
+      },
+      {
+        "step": 6,
+        "component": "LTM Virtual Server",
+        "name": "juiceshop",
+        "destination": "172.16.20.100:80",
+        "description": "LTM VS receives traffic and forwards to pool",
+        "action": "Forwards to pool: juiceshop_pool"
+      },
+      {
+        "step": 7,
+        "component": "LTM Pool",
+        "name": "juiceshop_pool",
+        "description": "Pool selects backend member using least-connections",
+        "action": "Selects pool member: 172.100.100.11:1521"
+      },
+      {
+        "step": 8,
+        "component": "Pool Member",
+        "destination": "172.100.100.11:1521",
+        "description": "Backend server processes the request",
+        "action": "Application responds with content"
+      }
+    ]
+  },
+  "curlCommands": {
+    "description": "All curl commands used to collect this configuration",
+    "commands": [
+      {
+        "step": 1,
+        "description": "Discover Wide IP types",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/wideip"
+      },
+      {
+        "step": 2,
+        "description": "Get A record Wide IPs",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/wideip/a"
+      },
+      {
+        "step": 3,
+        "description": "Get specific Wide IP details",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/wideip/a/~Common~juice.gslb.maniak.lab"
+      },
+      {
+        "step": 4,
+        "description": "Get GTM pool details",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/pool/a/~Common~juice.gslb.maniak.lab"
+      },
+      {
+        "step": 5,
+        "description": "Get GTM pool members",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/pool/a/~Common~juice.gslb.maniak.lab/members"
+      },
+      {
+        "step": 6,
+        "description": "Get GTM servers",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/server"
+      },
+      {
+        "step": 7,
+        "description": "Get GTM virtual servers",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/gtm/server/~Common~bigip/virtual-servers"
+      },
+      {
+        "step": 8,
+        "description": "Get all LTM virtual servers",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/ltm/virtual"
+      },
+      {
+        "step": 9,
+        "description": "Get LTM pool configuration",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/ltm/pool/~Common~juiceshop_pool"
+      },
+      {
+        "step": 10,
+        "description": "Get LTM pool members",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/ltm/pool/~Common~juiceshop_pool/members"
+      },
+      {
+        "step": 11,
+        "description": "Get monitor details",
+        "command": "curl -k -u admin:W3lcome098! -X GET https://172.16.10.10/mgmt/tm/ltm/monitor/http/~Common~juiceshop_http_monitor"
+      }
+    ]
+  },
+  "summary": {
+    "configurationSummary": {
+      "wideIpName": "juice.gslb.maniak.lab",
+      "wideIpType": "A record",
+      "wideIpStatus": "enabled",
+      "gtmPoolName": "juice.gslb.maniak.lab",
+      "gtmPoolLbMode": "round-robin",
+      "gtmVirtualServer": "juiceshop_vs (172.16.20.100:80)",
+      "ltmVirtualServer": "juiceshop (172.16.20.100:80)",
+      "ltmPool": "juiceshop_pool",
+      "ltmPoolLbMode": "least-connections-member",
+      "backendServers": ["172.100.100.11:1521"],
+      "monitor": "juiceshop_http_monitor (HTTP)",
+      "monitorInterval": "5 seconds",
+      "monitorTimeout": "16 seconds"
+    },
+    "healthStatus": {
+      "wideIp": "enabled",
+      "gtmPool": "enabled",
+      "gtmVirtualServer": "enabled",
+      "ltmVirtualServer": "enabled",
+      "ltmPool": "enabled",
+      "poolMembers": [
+        {
+          "address": "172.100.100.11:1521",
+          "state": "up",
+          "session": "monitor-enabled"
+        }
+      ],
+      "monitor": "enabled"
+    },
+    "loadBalancing": {
+      "gtmPoolMethod": "round-robin",
+      "ltmPoolMethod": "least-connections-member",
+      "gtmPoolMembers": 1,
+      "ltmPoolMembers": 1,
+      "maxAnswersReturned": 1,
+      "ttl": 30
+    }
+  }
+}
